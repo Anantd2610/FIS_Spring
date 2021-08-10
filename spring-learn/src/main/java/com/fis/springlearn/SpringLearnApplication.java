@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
+import com.fis.springlearn.bean.controller.EmployeeController;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -22,7 +23,20 @@ public class SpringLearnApplication {
 //		displayDate();
 //		displayCountry();
 //		displayCountries();
-		displayEmployee();
+//		displayEmployee();
+		getEmployeeController();
+	}
+	
+	static void getEmployeeController()
+	{
+		LOGGER.info("START");
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		EmployeeController employeeController = context.getBean("controller", EmployeeController.class);
+		
+		LOGGER.debug("EmployeeController : {}", employeeController);
+		context.close();
+		LOGGER.info("END");
 	}
 	
 	static void displayEmployee()
