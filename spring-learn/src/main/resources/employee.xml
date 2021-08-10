@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="employee" class="com.fis.springlearn.bean.Employee">
+        	<property name="id" value="10"></property>
+        	<property name="name" value="Anant"></property>
+        	<property name="salary" value="1234"></property>
+        	<property name="permanent" value="True"></property>
+        	<property name="dateOfBirth" value="10/26/1999"></property>
+        	<property name="department" ref="departmentBean"></property>
+        	<property name="skills">
+        		<array>
+        			<ref bean="skillHtml" />
+        			<ref bean="skillCss" />
+        			<ref bean="skillJs" />
+        		</array>
+        	</property>
+        	
+        </bean>
+        
+        <bean id="departmentBean" class="com.fis.springlearn.bean.Department">
+        	<property name="id" value="1" />
+        	<property name="name" value="Payroll" />
+        </bean>
+        
+        <bean id="skillHtml" class="com.fis.springlearn.bean.Skill">
+        	<property name="id" value="100" />
+        	<property name="name" value="Html" />
+        </bean>
+        
+        <bean id="skillCss" class="com.fis.springlearn.bean.Skill">
+        	<property name="id" value="200" />
+        	<property name="name" value="Css" />
+        </bean>
+        
+        <bean id="skillJs" class="com.fis.springlearn.bean.Skill">
+        	<property name="id" value="300" />
+        	<property name="name" value="Js" />
+        </bean>
+
+</beans>

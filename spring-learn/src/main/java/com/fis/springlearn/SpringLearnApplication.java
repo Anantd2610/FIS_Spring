@@ -8,8 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.fis.springlearn.bean.Employee;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -18,9 +19,23 @@ public class SpringLearnApplication {
 
 	public static void main(String[] args) throws java.text.ParseException {
 		SpringApplication.run(SpringLearnApplication.class, args);
-		displayDate();
-		displayCountry();
-		displayCountries();
+//		displayDate();
+//		displayCountry();
+//		displayCountries();
+		displayEmployee();
+	}
+	
+	static void displayEmployee()
+	{
+		LOGGER.info("START");
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		Employee employee = context.getBean("employee", Employee.class);
+		
+		LOGGER.debug("Employee : {}", employee);
+		context.close();
+		LOGGER.info("END");
+		
 	}
 
 	static void displayCountries() {
