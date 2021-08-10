@@ -6,12 +6,12 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
-import com.fis.springlearn.bean.controller.EmployeeController;
+import com.fis.springlearn.controller.EmployeeController;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -19,12 +19,26 @@ public class SpringLearnApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
 
 	public static void main(String[] args) throws java.text.ParseException {
-		SpringApplication.run(SpringLearnApplication.class, args);
+//		SpringApplication.run(SpringLearnApplication.class, args);
 //		displayDate();
 //		displayCountry();
 //		displayCountries();
 //		displayEmployee();
 		getEmployeeController();
+		
+//		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(EmployeeController.class);
+//		displayEmployeeControllerAnnotation(applicationContext);
+	}
+	
+	public static void displayEmployeeControllerAnnotation(ApplicationContext applicationContext)
+	{
+		LOGGER.info("START");
+		
+		EmployeeController employeeController = (EmployeeController) applicationContext.getBean("employeeController");
+		
+		LOGGER.debug("EmployeeController : {}", employeeController);
+		LOGGER.info("END");
+
 	}
 	
 	static void getEmployeeController()

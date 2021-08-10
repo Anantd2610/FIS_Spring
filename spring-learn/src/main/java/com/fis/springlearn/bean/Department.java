@@ -3,7 +3,7 @@ package com.fis.springlearn.bean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fis.springlearn.SpringLearnApplication;
+
 
 public class Department {
 	
@@ -32,7 +32,9 @@ public class Department {
 	
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", name=" + name + "]";
+		return "Department [id=" + id + ", name=" + name + ", getId()=" + getId() + ", getName()=" + getName()
+		+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+		+ "]";
 	}
 	
 
