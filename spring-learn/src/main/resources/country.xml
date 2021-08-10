@@ -9,6 +9,36 @@
 		<property name="code" value="IN" />
 		<property name="name" value="India" />
 	</bean>
-
+	
+	<bean id="cn" class="com.fis.springlearn.Country">
+		<property name="code" value="CN" />
+		<property name="name" value="Canada" />
+	</bean>
+	
+	<bean id="us" class="com.fis.springlearn.Country">
+		<property name="code" value="US" />
+		<property name="name" value="United States" />
+	</bean>
+	
+	<bean id="de" class="com.fis.springlearn.Country">
+		<property name="code" value="DE" />
+		<property name="name" value="Germany" />
+	</bean>
+	
+	<bean id="jp" class="com.fis.springlearn.Country">
+		<property name="code" value="JP" />
+		<property name="name" value="Japan" />
+	</bean>
+	
+	<bean id="countryList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="cn"></ref>
+				<ref bean="us"></ref>
+				<ref bean="de"></ref>
+				<ref bean="jp"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
 
 </beans>
