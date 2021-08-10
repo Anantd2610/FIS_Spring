@@ -18,6 +18,16 @@ public class SpringLearnApplication {
 	public static void main(String[] args) throws java.text.ParseException {
 		SpringApplication.run(SpringLearnApplication.class, args);
 		displayDate();
+		displayCountry();
+	}
+
+	private static void displayCountry() 
+	{
+		// TODO Auto-generated method stub
+		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
+		Country country = (Country) context.getBean("country", Country.class);
+		LOGGER.debug("Country : {}", country.toString());
+		
 	}
 
 	static void displayDate() {
@@ -33,6 +43,7 @@ public class SpringLearnApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 		LOGGER.info("END");
 	}
