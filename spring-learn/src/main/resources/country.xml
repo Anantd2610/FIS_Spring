@@ -5,7 +5,7 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
         
      <!-- Country country = new Country(); -->
-	<bean id="country" class="com.fis.springlearn.Country">
+	<bean id="country" class="com.fis.springlearn.Country" scope="prototype"> <!-- two instances of the country is created because we added scope -->
 		<property name="code" value="IN" />
 		<property name="name" value="India" />
 	</bean>
