@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
@@ -24,17 +25,16 @@ public class SpringLearnApplication {
 //		displayCountry();
 //		displayCountries();
 //		displayEmployee();
-		getEmployeeController();
 		
-//		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(EmployeeController.class);
-//		displayEmployeeControllerAnnotation(applicationContext);
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(EmployeeController.class);
+		displayEmployeeControllerAnnotation(applicationContext);
 	}
 	
 	public static void displayEmployeeControllerAnnotation(ApplicationContext applicationContext)
 	{
 		LOGGER.info("START");
 		
-		EmployeeController employeeController = (EmployeeController) applicationContext.getBean("employeeController");
+		EmployeeController employeeController = applicationContext.getBean("employeeController", EmployeeController.class);
 		
 		LOGGER.debug("EmployeeController : {}", employeeController);
 		LOGGER.info("END");
@@ -71,7 +71,7 @@ public class SpringLearnApplication {
 		LOGGER.info("START");
 		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
-		ArrayList countryList = context.getBean("countryList", ArrayList.class);
+		ArrayList<Country> countryList = context.getBean("countryList", ArrayList.class);
 		
 		LOGGER.debug("CountryList : {}", countryList);
 		
